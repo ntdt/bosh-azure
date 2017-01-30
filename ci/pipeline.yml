@@ -28,15 +28,15 @@ jobs:
           - name: bosh-azure
         run:
           path: bosh-azure/ci/tasks/init/wipe-env.sh
-          params:
-            arg_wipe: {{arg_wipe}}
-            azure_bosh_terraform_template: {{azure_bosh_terraform_template}}
-            azure_subscription_id: {{azure_subscription_id}}
-            azure_tenant_id: {{azure_tenant_id}}
-            azure_service_principal_id: {{azure_service_principal_id}}
-            azure_service_principal_password: {{azure_service_principal_password}}
-            azure_region: {{azure_region}}
-            azure_terraform_prefix: {{azure_terraform_prefix}}
+        params:
+          arg_wipe: {{arg_wipe}}
+          azure_bosh_terraform_template: {{azure_bosh_terraform_template}}
+          azure_subscription_id: {{azure_subscription_id}}
+          azure_tenant_id: {{azure_tenant_id}}
+          azure_service_principal_id: {{azure_service_principal_id}}
+          azure_service_principal_password: {{azure_service_principal_password}}
+          azure_region: {{azure_region}}
+          azure_terraform_prefix: {{azure_terraform_prefix}}
 
     - task: init-azure-resources
       config:
@@ -50,7 +50,6 @@ jobs:
         run:
           path: bosh-azure/ci/tasks/init/init-azure-resources.sh
         params:
-          arg_wipe: {{arg_wipe}}
           azure_bosh_terraform_template: {{azure_bosh_terraform_template}}
           azure_subscription_id: {{azure_subscription_id}}
           azure_tenant_id: {{azure_tenant_id}}
