@@ -59,7 +59,7 @@ function fn_get_ip {
      fi
 }
 
-pub_ip_bosh_lb=$(fn_get_ip "bosh-public-ip")
+pub_ip_bosh=$(fn_get_ip "bosh-public-ip")
 
 echo "You have now deployed Public IP to azure that must be resolvable to:"
 echo "----------------------------------------------------------------------------------------------"
