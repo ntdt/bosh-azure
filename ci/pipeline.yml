@@ -1,4 +1,4 @@
-resource_types:
+resources:
 
 - name: bosh-azure
   type: git
@@ -16,28 +16,27 @@ jobs:
     - aggregate:
       - get: bosh-azure
         trigger: false
+
     - task: wipe-env
       config:
-      platform: linux
-      image_resource:
-        type: docker-image
-        source:
-          repository: virtmerlin/c0-worker
-      inputs:
-        - name: azure-concourse
-      outputs:
-        - name: opsman-metadata
-      run:
-        path: azure-concourse/ci/tasks/init/wipe-env.sh
-      params:
-        arg_wipe: {{arg_wipe}}
-        azure_bosh_terraform_template: {{azure_bosh_terraform_template}}
-        azure_subscription_id: {{azure_subscription_id}}
-        azure_tenant_id: {{azure_tenant_id}}
-        azure_service_principal_id: {{azure_service_principal_id}}
-        azure_service_principal_password: {{azure_service_principal_password}}
-        azure_region: {{azure_region}}
-        azure_terraform_prefix: {{azure_terraform_prefix}}
+        platform: linux
+        image_resource:
+          type: docker-image
+          source:
+            repository: virtmerlin/c0-worker
+        inputs:
+          - name: bosh-azure
+        run:
+          path: bosh-azure/ci/tasks/init/wipe-env.sh
+          params:
+            arg_wipe: {{arg_wipe}}
+            azure_bosh_terraform_template: {{azure_bosh_terraform_template}}
+            azure_subscription_id: {{azure_subscription_id}}
+            azure_tenant_id: {{azure_tenant_id}}
+            azure_service_principal_id: {{azure_service_principal_id}}
+            azure_service_principal_password: {{azure_service_principal_password}}
+            azure_region: {{azure_region}}
+            azure_terraform_prefix: {{azure_terraform_prefix}}
 
     - task: init-azure-resources
       config:
