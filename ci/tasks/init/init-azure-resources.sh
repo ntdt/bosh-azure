@@ -26,7 +26,7 @@ terraform ${1} \
   -var "env_name=${azure_terraform_prefix}" \
   -var "azure_terraform_vnet_cidr=${azure_terraform_vnet_cidr}" \
   -var "azure_terraform_subnet_bosh_cidr=${azure_terraform_subnet_bosh_cidr}" \
-  azure-concourse/terraform/${azure_bosh_terraform_template}
+  bosh-azure/terraform/${azure_bosh_terraform_template}
 
 }
 
