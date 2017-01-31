@@ -60,3 +60,19 @@ jobs:
           azure_terraform_vnet_cidr: {{azure_terraform_vnet_cidr}}
           azure_terraform_subnet_bosh_cidr: {{azure_terraform_subnet_bosh_cidr}}
           bosh_domain: {{bosh_domain}}
+########################
+## bootstrap boot ######
+########################
+- name: bootstrap-bosh
+  serial: true
+  max_in_flights: 1
+  serial_groups: [full]
+  plan:
+    - aggregate:
+        - get: bosh-azure
+          trigger: false
+    - task: init-bosh
+      file: bosh-azure/ci/tasks/init-bosh.yml
+      params:
+        abc: abc
+
