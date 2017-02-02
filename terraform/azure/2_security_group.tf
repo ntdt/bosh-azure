@@ -2,9 +2,9 @@
 //// Security Groups ////
 //////////////////////////
 
-resource "azurerm_network_security_group" "bosh_nsg" {
+resource "azurerm_network_security_group" "bosh" {
   name                = "bosh_nsg"
-  depends_on          = ["azurerm_resource_group.bosh_resource_group"]
+  depends_on          = ["azurerm_resource_group.bosh"]
   location            = "${var.location}"
   resource_group_name = "${var.env_name}"
 

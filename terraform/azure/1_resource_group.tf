@@ -2,7 +2,7 @@
 //////// Set Azure Res Group //////////////////
 ///////////////////////////////////////////////
 
-resource "azurerm_resource_group" "bosh_resource_group" {
+resource "azurerm_resource_group" "bosh" {
   name     = "${var.env_name}"
   location = "${var.location}"
 }

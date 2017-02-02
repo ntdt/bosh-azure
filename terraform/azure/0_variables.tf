@@ -11,3 +11,7 @@ variable "location" {}
 
 variable "azure_terraform_vnet_cidr" {}
 variable "azure_terraform_subnet_bosh_cidr" {}
+variable "jumpbox_private_ip" {}
+variable "jumpbox_hostname" {}
+variable "vm_admin_username" {}
+variable "vm_admin_password" {}
