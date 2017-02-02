@@ -44,6 +44,8 @@ jobs:
           bosh_domain: {{bosh_domain}}
           vm_admin_username: {{azure_vm_admin}}
           vm_admin_password: {{azure_vm_password}}
+          jumpbox_private_ip: {{jumpbox_private_ip}}
+          jumpbox_hostname: {{jumpbox_hostname}}
 ########################
 ## bootstrap boot ######
 ########################

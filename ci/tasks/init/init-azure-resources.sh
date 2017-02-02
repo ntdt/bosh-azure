@@ -28,8 +28,8 @@ terraform ${1} \
   -var "azure_terraform_subnet_bosh_cidr=${azure_terraform_subnet_bosh_cidr}" \
   -var "jumpbox_private_ip=${jumpbox_private_ip}" \
   -var "jumpbox_hostname=${jumpbox_hostname}" \
-  -var "vm_admin_username=${azure_vm_admin}" \
-  -var "vm_admin_password=${azure_vm_password}" \
+  -var "vm_admin_username=${vm_admin_username}" \
+  -var "vm_admin_password=${vm_admin_password}" \
   bosh-azure/terraform/${azure_bosh_terraform_template}
 
 }
