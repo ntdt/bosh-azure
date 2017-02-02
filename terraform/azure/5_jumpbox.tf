@@ -17,7 +17,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
   location              = "${var.location}"
   resource_group_name   = "${azurerm_resource_group.bosh.name}"
   network_interface_ids = ["${azurerm_network_interface.jumpbox.id}"]
-  vm_size               = "Standard_A0"
+  vm_size               = "Standard_D3_v2"
 
   storage_image_reference {
     publisher = "Canonical"
@@ -35,7 +35,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
   storage_data_disk {
     name          = "jb_datadisk0"
     vhd_uri       = "${azurerm_storage_account.bosh.primary_blob_endpoint}${azurerm_storage_container.bosh.name}/jb_datadisk0.vhd"
-    disk_size_gb  = "20"
+    disk_size_gb  = "30"
     create_option = "empty"
     lun           = 0
   }
