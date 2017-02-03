@@ -17,7 +17,7 @@ resource "azurerm_virtual_machine" "jumpbox" {
   location              = "${var.location}"
   resource_group_name   = "${azurerm_resource_group.bosh.name}"
   network_interface_ids = ["${azurerm_network_interface.jumpbox.id}"]
-  vm_size               = "Standard_D3_v2"
+  vm_size               = "Standard_D2_v2"
 
   storage_image_reference {
     publisher = "Canonical"

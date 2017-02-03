@@ -45,7 +45,7 @@ resgroup_lookup_net=${azure_terraform_prefix}
 function fn_get_ip {
       # Adding retry logic to this because Azure doesn't always return the IPs on the first attempt
       for (( z=1; z<11; z++ )); do
-           sleep 1
+           sleep 10
            azure_cmd="azure network public-ip list -g ${resgroup_lookup_net} --json | jq '.[] | select( .name | contains(\"${1}\")) | .ipAddress' | tr -d '\"'"
            pub_ip=$(eval $azure_cmd)
 
